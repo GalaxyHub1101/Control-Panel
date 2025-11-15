@@ -1,0 +1,186 @@
+/* GLOBAL RESETS & FONTS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set Montserrat as the base font for the entire page */
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.main {
+    position: relative;
+    min-height: 100vh;
+}
+
+/* SEARCH BAR STYLES (No change) */
+.search-container {
+    background: white;
+    padding: 5px;
+    width: 280px;
+    height: 35px;
+    border-radius: 10px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
+}
+
+.search-form {
+    display: flex;
+    height: 100%;
+}
+
+#search-input {
+    border: none;
+    outline: none;
+    padding: 0 5px;
+    flex-grow: 1;
+    border-radius: 5px 0 0 5px;
+    font-size: 14px;
+    color: #333;
+}
+
+#search-button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 0 10px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+#search-button:hover {
+    background: #0056b3;
+}
+
+/* CLOCK STYLES (No change) */
+.hero {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+}
+
+.container {
+    width: 570px;
+    height: 140px;
+    position: absolute;
+    top: 50%; 
+    left: 10%;
+    transform: translateY(-50%); 
+}
+
+.clock {
+    width: 100%;
+    height: 100%;
+    background: rgba(235, 0, 255, 0.1);
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(40px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.container::before, .container::after {
+    content: '';
+    width: 115px;
+    height: 115px;
+    position: absolute;
+    z-index: -1;
+}
+
+.container::before {
+    background: #f44336;
+    border-radius: 5px;
+    left: -50px;
+    top: -50px;
+}
+
+.container::after {
+    background: #00ffbf;
+    border-radius: 50%;
+    right: -30px;
+    bottom: -50px;
+}
+
+.clock span {
+    font-size: 70px;
+    width: 110px;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+}
+
+.clock #HRS::after,
+.clock #Min::after,
+.clock #Sac::after {
+    font-size: 16px;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translate(-50%);
+    white-space: nowrap;
+    color: #ccc;
+}
+
+.clock #HRS::after { content: 'Hours'; }
+.clock #Min::after { content: 'Minutes'; }
+.clock #Sac::after { content: 'Seconds'; }
+
+
+/* MOBILE APP SHORTCUTS STYLES */
+
+.app-shortcuts {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translateY(-50%);
+    
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 15px; 
+    max-width: 350px; 
+}
+
+.app-shortcuts a {
+    text-decoration: none;
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 14px; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center; /* Vertically centers content if there's extra space */
+    transition: background 0.3s, color 0.3s;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.app-shortcuts a:hover {
+    background: rgba(0, 123, 255, 0.8);
+    color: #fff;
+}
+
+.app-icon {
+    /* No font-size as it's for an image now */
+    margin-bottom: 5px;
+    height: 40px; /* Give the span a fixed height to align text */
+    width: 40px; /* Give the span a fixed width */
+    display: flex; /* Make it a flex container */
+    align-items: center; /* Vertically center the image */
+    justify-content: center; /* Horizontally center the image */
+}
+
+.app-icon img {
+    max-width: 100%; /* Ensures image fits within the span */
+    max-height: 100%; /* Ensures image fits within the span */
+    object-fit: contain; /* Prevents image distortion */
+}

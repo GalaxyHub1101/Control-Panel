@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x.icon" href=""> 
+    <title>Control Panel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body style="background-color:rgb(4, 4, 37);">
+
+    <div class="app-shortcuts">
+        <a href="googleremotesapp://">
+            <span class="app-icon">
+                <img src="images/google_home.png" alt="Google Home Icon">
+            </span>
+            Google Home
+        </a>
+        <a href="vnd.youtube://">
+            <span class="app-icon">
+                <img src="images/youtube.png" alt="YouTube Icon">
+            </span>
+            YouTube
+        </a>
+        <a href="stremio://">
+            <span class="app-icon">
+                <img src="images/stremio.png" alt="Stremio Icon">
+            </span>
+            Stremio
+        </a>
+        <a href="googlegmail://">
+            <span class="app-icon">
+                <img src="images/gmail.png" alt="Gmail Icon">
+            </span>
+            Gmail
+        </a>
+    </div>
+
+    <div class="main">
+        <div class="hero">
+            <div class="container">
+                <div class="clock">
+                    <span id="HRS">00</span>  <span>:</span>
+                    <span id="Min">00</span>  <span>:</span>
+                    <span id="Sac">00</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="search-container">
+            <form action="https://duckduckgo.com/" method="GET" class="search-form">
+                <input type="text" id="search-input" name="q" placeholder="Search">
+                <button type="submit" id="search-button">Search</button>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        let Hrs = document.getElementById("HRS");
+        let Min = document.getElementById("Min");
+        let Sac = document.getElementById("Sac");
+
+        setInterval(function() {
+            let currentTime = new Date();
+
+            let hours = currentTime.getHours();
+            let minutes = currentTime.getMinutes();
+            let seconds = currentTime.getSeconds();
+
+            hours = hours < 10 ? "0" + hours : hours;
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            Hrs.innerHTML = hours; 
+            Min.innerHTML = minutes;
+            Sac.innerHTML = seconds;
+        }, 1000);
+    </script>
+</body>
+</html>
